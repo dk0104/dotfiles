@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATHTOYOTA SEQUOIA CAPSTONTOYOTA SEQUOIA CAPSTONEE.
- export PATH=$HOME/bin:/usr/local/bin:$HOME/.cargo/bin/:$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin/:$HOME/Qt/6.6.1/macos/lib:/Library/TeX/texbin/:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.cargo/bin/:$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin/:$HOME/Qt/6.6.1/macos/lib:/Library/TeX/texbin/:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -164,6 +164,7 @@ alias dcla="docker container list -all"
 #Nvim alias
 
 alias v="nvim"
+#alias als="alias | fzf"
 
 
 alias zfg="nvim ~/.zshrc"
