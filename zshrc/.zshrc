@@ -136,6 +136,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 
 export FZP_TMUX_OPTS="--preview 'tmux list-sessions -F \"#S\"'"
 export FZF_TMUX_OPTS="-p80%,60%"
+export CHEAT_USE_FZF=true
 
 alias cat="bat"
 alias la="tree"
@@ -173,6 +174,8 @@ alias ti= "tmux new -s (pwd | sed 's/.*\///g')"
 alias clk= "theme-switcher.sh"
 eval "$(zoxide init zsh --cmd cd)"
 
+# Functions  
+# Yazi
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -182,3 +185,14 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+# pet
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^s' pet-select
+
+export PATH="/opt/homebrew/bin:$PATH"
