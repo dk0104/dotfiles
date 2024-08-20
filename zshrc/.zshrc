@@ -1,3 +1,4 @@
+
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
@@ -19,7 +20,7 @@ setopt HIST_IGNORE_ALL_DUPS
 #
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -e
+bindkey -v
 
 # Prompt for spelling correction of commands.
 #setopt CORRECT
@@ -112,6 +113,7 @@ fi
 source ${ZIM_HOME}/init.zsh
 
 
+
 # ------------------------------
 # Post-init module configuration
 # ------------------------------
@@ -138,16 +140,19 @@ source ~/.zsh_functions
 source ~/.zsh_aliases
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export EDITOR=nvim
+export KUBECONFIG=~/.kube/config
 export HOMEBREW_PREFIX="/opt/homebrew";
 export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
 export HOMEBREW_REPOSITORY="/opt/homebrew";
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/bin:$HOME/Exercism:${PATH+:$PATH}";
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 source <(fzf --zsh)
+precmd_functions+=(set_win_title)
 
 #######################
 # Aliases
@@ -166,3 +171,9 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
+
+#######################
+# Keybindings
+#######################
+
+
