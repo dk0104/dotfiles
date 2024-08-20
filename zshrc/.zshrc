@@ -111,6 +111,7 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
+
 # ------------------------------
 # Post-init module configuration
 # ------------------------------
@@ -128,6 +129,14 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
+
+# ------------------------------
+# Initialize own files
+# ------------------------------
+
+source ~/.zsh_functions
+source ~/.zsh_aliases
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_PREFIX="/opt/homebrew";
 export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
@@ -137,13 +146,13 @@ export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
 #######################
 # Aliases
 #######################
 
-alias v='nvim'
 
 #######################
 # Funcitons
