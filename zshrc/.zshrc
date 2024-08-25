@@ -139,20 +139,12 @@ unset key
 source ~/.zsh_functions
 source ~/.zsh_aliases
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
 export EDITOR=nvim
 export KUBECONFIG=~/.kube/config
-export HOMEBREW_PREFIX="/opt/homebrew";
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-export HOMEBREW_REPOSITORY="/opt/homebrew";
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/bin:$HOME/Exercism:${PATH+:$PATH}";
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
 source <(fzf --zsh)
-precmd_functions+=(set_win_title)
 
 #######################
 # Aliases
